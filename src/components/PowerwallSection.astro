@@ -1,37 +1,36 @@
-<section
+---
+import Section from './Section.astro'
+---
+
+<Section
+  color='black'
+  title='Solar y Powerwall'
+  subtitle='Energía para todos'
   id='section-powerwall'
-  class='landing-section bg-black h-screen w-full text-center relative overflow-hidden snap-center'
-  data-header-color='black'
 >
-  <div class='z-30 relative h-full flex flex-col'>
-    <header>
-      <h2 class='text-black pt-36 text-[40px] font-medium'>
-        Solar y Powerwall
-      </h2>
+<p
+  slot='subtitle'
+  class=`text-[var(--dark)] text-sm`
+  >Energia para todos
+</p>
+
+  <footer
+    slot='footer'
+    class='flex flex-col flex-grow justify-end mb-16'
+  >
+    <div class='flex flex-row justify-center gap-6'>
       <a
+        class='text-white text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[5.5rem] py-[0.45rem] bg-[var(--dark)] backdrop-blur-sm'
         href='#'
-        class='text-gray-800 text-sm'
+        >Saber más</a
       >
-        Energía para todos
-      </a>
-    </header>
+    </div>
+  </footer>
 
-    <footer class='flex flex-col flex-grow justify-end mb-20'>
-      <div class='flex flex-row justify-center gap-6'>
-        <a
-          class='text-white text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[5.5rem] py-[0.45rem] bg-[var(--dark)] backdrop-blur-sm'
-          href='#'
-          >Saber más</a
-        >
-      </div>
-    </footer>
-  </div>
-
-  <div class='absolute top-0 bottom-0 h-full w-full z-10'>
-    <img
-      class='object-cover h-full w-full object-center'
-      alt='Powerwall'
-      src='/powerwall.jpg'
-    />
-  </div>
-</section>
+  <img
+    slot='background'
+    class='object-cover h-full w-full object-center'
+    alt='Powerwall'
+    src='/powerwall.jpg'
+  />
+</Section>

@@ -1,63 +1,63 @@
-<section
+---
+import Section from './Section.astro'
+---
+
+<Section
+  color='black'
+  title='Accesorios'
   id='section-accesories'
-  class='landing-section bg-black h-screen w-full text-center relative overflow-hidden snap-center'
-  data-header-color='black'
 >
-  <div class='z-30 relative h-full flex flex-col'>
-    <header>
-      <h2 class='text-black pt-36 text-[40px] font-medium'>Accesorios</h2>
-    </header>
-
-    <footer class='flex flex-col flex-grow justify-end mb-6'>
-      <div class='flex flex-row justify-center gap-6 mb-10'>
+  <footer
+    slot='footer'
+    class='flex flex-col flex-grow justify-end mb-3'
+  >
+    <div class='flex flex-row justify-center gap-6 mb-9'>
+      <a
+        class='text-white text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[4.5rem] py-[0.45rem] bg-[#171A20] backdrop-blur-sm'
+        href='#'
+        >Comprar ahora</a
+      >
+    </div>
+    <div class='flex flex-row justify-center'>
+      <ul class='flex gap-4'>
         <a
-          class='text-white text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[4.5rem] py-[0.45rem] bg-[#171A20] backdrop-blur-sm'
+          class='text-gray-800 text-xs inline-block'
           href='#'
-          >Comprar ahora</a
+          >Tesla © 2023</a
         >
-      </div>
-      <div class='flex flex-row justify-center'>
-        <ul class='flex gap-4'>
-          <a
-            class='text-gray-800 text-xs inline-block'
-            href='#'
-            >Tesla © 2023</a
-          >
-          <a
-            class='text-gray-800 text-xs inline-block'
-            href='#'
-            >Privacidad y legal</a
-          >
-          <a
-            class='text-gray-800 text-xs inline-block'
-            href='#'
-            >Contacto</a
-          >
-          <a
-            class='text-gray-800 text-xs inline-block'
-            href='#'
-            >Noticias</a
-          >
-          <a
-            class='text-gray-800 text-xs inline-block'
-            href='#'
-            >Seguir informado</a
-          >
-          <a
-            class='text-gray-800 text-xs inline-block'
-            href='#'
-            >Localización de tiendas</a
-          >
-        </ul>
-      </div>
-    </footer>
-  </div>
+        <a
+          class='text-gray-800 text-xs inline-block'
+          href='#'
+          >Privacidad y legal</a
+        >
+        <a
+          class='text-gray-800 text-xs inline-block'
+          href='#'
+          >Contacto</a
+        >
+        <a
+          class='text-gray-800 text-xs inline-block'
+          href='#'
+          >Noticias</a
+        >
+        <a
+          class='text-gray-800 text-xs inline-block'
+          href='#'
+          >Seguir informado</a
+        >
+        <a
+          class='text-gray-800 text-xs inline-block'
+          href='#'
+          >Localización de tiendas</a
+        >
+      </ul>
+    </div>
+  </footer>
 
-  <div class='absolute top-0 bottom-0 h-full w-full z-10'>
-    <img
-      class='object-cover h-full w-full object-center'
-      alt='Accesorios'
-      src='/accesories.jpg'
-    />
-  </div>
-</section>
+  <img
+    slot='background'
+    class='object-cover h-full w-full object-center'
+    alt='Accesorios'
+    src='/accesories.jpg'
+  />
+</Section>

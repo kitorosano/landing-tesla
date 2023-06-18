@@ -1,47 +1,48 @@
-<section
+---
+import Section from './Section.astro'
+---
+
+<Section
+  color='black'
+  title='Model Y'
   id='section-model-y'
-  class='landing-section bg-black h-screen w-full text-center relative overflow-hidden snap-center'
-  data-header-color='black'
 >
-  <div class='z-30 relative h-full flex flex-col'>
-    <header>
-      <h2 class='text-black pt-36 text-[40px] font-medium'>Model Y</h2>
+  <a
+    slot='subtitle'
+    href='#'
+    class='text-[var(--dark)] text-sm underline underline-offset-4 border-b-transparent border-b-2 hover:border-black transition-all'
+  >
+    Concertar una prueba de conducción
+  </a>
+  <footer
+    slot='footer'
+    class='flex flex-col flex-grow justify-end'
+  >
+    <div class='flex flex-row justify-center gap-6 mb-9'>
       <a
+        class='text-white text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[3.6rem] py-[0.45rem] bg-[var(--dark)] hover:text-black transition-colors backdrop-blur-sm'
         href='#'
-        class='text-gray-800 text-sm underline underline-offset-4 border-b-transparent border-b-2 hover:border-black transition-all'
+        >Explorar inventario</a
       >
-        Concertar una prueba de conducción
-      </a>
-    </header>
+      <a
+        class='text-gray-800 text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[3.3rem] py-[0.4rem] bg-gray-100 hover:text-black transition-colors backdrop-blur-sm'
+        href='#'
+        >Pedido personalizado</a
+      >
+    </div>
+    <div class='flex flex-row justify-center'>
+      <a
+        class='text-gray-800 text-xs inline-block underline underline-offset-4 border-b-transparent border-b-2 hover:border-black transition-all'
+        href='#'
+        >Disponible con Moves III</a
+      >
+    </div>
+  </footer>
 
-    <footer class='flex flex-col flex-grow justify-end mb-4'>
-      <div class='flex flex-row justify-center gap-6 mb-7'>
-        <a
-          class='text-white text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[3.6rem] py-[0.45rem] bg-[var(--dark)] hover:text-black transition-colors backdrop-blur-sm'
-          href='#'
-          >Explorar inventario</a
-        >
-        <a
-          class='text-gray-800 text-sm font-medium border-[3px] inline-flex justify-center items-center rounded border-transparent px-[3.3rem] py-[0.4rem] bg-gray-100 hover:text-black transition-colors backdrop-blur-sm'
-          href='#'
-          >Pedido personalizado</a
-        >
-      </div>
-      <div class='flex flex-row justify-center'>
-        <a
-          class='text-gray-800 text-xs inline-block underline underline-offset-4 border-b-transparent border-b-2 hover:border-black transition-all'
-          href='#'
-          >Disponible con Moves III</a
-        >
-      </div>
-    </footer>
-  </div>
-
-  <div class='absolute top-0 bottom-0 h-full w-full z-10'>
-    <img
-      class='object-cover h-full w-full object-center'
-      alt='Model Y'
-      src='/model-y.jpg'
-    />
-  </div>
-</section>
+  <img
+    slot='background'
+    class='object-cover h-full w-full object-center'
+    alt='Model Y'
+    src='/model-y.jpg'
+  />
+</Section>
