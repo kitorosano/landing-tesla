@@ -1,0 +1,85 @@
+---
+import Logo from './Logo.astro'
+---
+
+<header
+  id='landing-header'
+  class='py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white'
+>
+  <div class='flex flex-grow basis-0'>
+    <a href=''>
+      <Logo />
+    </a>
+  </div>
+  <nav>
+    <ul
+      class='flex text-sm [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 transition-colors duration-500'
+    >
+      <li><a href='#section-model-s'>Model S</a></li>
+      <li><a href='#section-model-3'>Model 3</a></li>
+      <li><a href='#section-model-x'>Model X</a></li>
+      <li><a href='#section-model-y'>Model Y</a></li>
+      <li><a href='#section-powerwall'>Powerwall</a></li>
+      <li><a href='#section-accesories'>Carga</a></li>
+    </ul>
+  </nav>
+  <nav class='flex flex-grow justify-end basis-0'>
+    <ul
+      class='flex text-sm [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 transition-colors duration-500'
+    >
+      <li><a href='#'>Soporte</a></li>
+      <li><a href='#'>Tienda</a></li>
+      <li><a href='#'>Cuenta</a></li>
+      <li><a href='#'>Menú</a></li>
+    </ul>
+  </nav>
+
+  <div id="menu-backdrop" class="-z-10 opacity-0 absolute bg-black/5 backdrop-blur-lg rounded left-0 translate-x-[var(--left)] top-0 translate-y-[var(--top)] w-[var(--width)] h-[var(--height)] transition-all duration-300 delay-100 ease-in-out">
+  </div>
+</header>
+
+<script>
+  const $listItem = document.querySelectorAll('#landing-header li')
+  const $menuBackdrop = document.querySelector('#menu-backdrop') as HTMLElement
+
+  $listItem.forEach((item) => {
+    item.addEventListener('mouseenter', () => {
+      const { left, top, width, height } = item.getBoundingClientRect()
+
+      $menuBackdrop.style.setProperty('--left', `${left}px`)
+      $menuBackdrop.style.setProperty('--top', `${top}px`)
+      $menuBackdrop.style.setProperty('--width', `${width}px`)
+      $menuBackdrop.style.setProperty('--height', `${height}px`)
+
+      $menuBackdrop.classList.remove('opacity-0')
+      $menuBackdrop.classList.add('opacity-100')
+    })
+
+    item.addEventListener('mouseleave', (e) => {
+      $menuBackdrop.classList.remove('opacity-100')
+      $menuBackdrop.classList.add('opacity-0')
+    })
+  })
+</script>
+
+<script>
+  const $header = document.querySelector('#landing-header') as HTMLElement
+  const observerOptions = {
+    root: null, // defaults to the browser viewport if not specified or if null
+    rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
+    threshold: 0.9 // visible amount of item shown in relation to root
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { isIntersecting, target } = entry
+      if (isIntersecting) {
+        const color = target.getAttribute('data-header-color')
+        $header.style.color = color
+      }
+    })
+  }, observerOptions)
+
+  const $sections = document.querySelectorAll('.landing-section')
+  $sections.forEach((section) => observer.observe(section))
+</script>
